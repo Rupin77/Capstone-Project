@@ -133,6 +133,7 @@ const Cart = () => {
     const [description, setDesc] = useState('')
     const [price, setPrice] = useState(0)
     const [img, setimg] = useState('');
+    const [_id, setid] = useState('');
 
    
 
@@ -145,6 +146,11 @@ const Cart = () => {
             setfoodlist(response.data);
           })
       })
+
+    const deletefood = (id) => {
+        Axios.delete(`http://localhost:3001/delete/${id}`)
+        
+    }  
 
         return (
           
@@ -170,7 +176,6 @@ const Cart = () => {
                             <Image src={foodlist.img}/>
                             <Details>
                                 <ProductName><b>Product: </b>{foodlist.title}</ProductName>
-                                <ProductId><b>Id: </b>4231434</ProductId>
                                 <ProductType><b>Type: </b>{foodlist.type}</ProductType>
                             </Details>
                             <PriceDetail>
@@ -181,7 +186,9 @@ const Cart = () => {
                             </ProductAmountContainer>
                             <ProductPrice>$ {foodlist.price}</ProductPrice>
                         </PriceDetail>
+                        <button onClick={() => deletefood(foodlist._id)}>Remove From Cart</button>
                         </ProductDetail>
+                        
                             ))
                         }
                     </Product>
