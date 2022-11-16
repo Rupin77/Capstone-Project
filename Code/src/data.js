@@ -63,7 +63,7 @@ export const sliderItems =[
           img:"https://i.imgur.com/HaPmybb.png",
         },
       ]
-
+      
 
 
 

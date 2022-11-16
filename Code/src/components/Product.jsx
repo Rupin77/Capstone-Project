@@ -4,6 +4,8 @@ import {
   ShoppingCartOutlined,
 } from "@material-ui/icons";
 import styled from "styled-components";
+import React, { useState, useEffect } from "react"; 
+import Axios from 'axios';
 
 const Info = styled.div`
   opacity: 0;
@@ -66,13 +68,14 @@ const Icon = styled.div`
 `;
 
 const Product = ({ item }) => {
+
   return (
     <Container>
       <Circle />
       <Image src={item.img} />
       <Info>
         <Icon>
-          <ShoppingCartOutlined />
+          <ShoppingCartOutlined></ShoppingCartOutlined>
         </Icon>
         <Icon>
           <SearchOutlined />

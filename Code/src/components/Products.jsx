@@ -19,27 +19,18 @@ const Products = () => {
   const [price, setPrice] = useState(0)
   const [img, setimg] = useState('');
 
- 
-
   const [foodlist, setfoodlist] = useState([]);
-  const [cartlist, setcartlist] = useState([]);
 
   useEffect(()=> {
        
     Axios.get("http://localhost:3001/food").then((response)=> {
         setfoodlist(response.data);
       })
-      Axios.get("http://localhost:3001/cart").then((response)=> {
-        setcartlist(response.data);
-      })
   })
   return (
     <Container>
       {foodlist.map((item) => (
         <Product item={item} key={item.id}></Product>
-      ))}
-       {cartlist.map((item) => (
-        <Cart item={item} key={item.id}></Cart>
       ))}
     </Container>
     

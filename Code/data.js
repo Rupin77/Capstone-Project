@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require('cors');
 const app = express();
 const { MongoClient } = require('mongodb');
+const mongodb = require('mongodb');
 
 app.use(cors());
 app.use(express.json());
@@ -24,7 +25,14 @@ const main = async () => {
             const cursor = CartCollection.find({});
             const food = await cursor.toArray();
             res.send(food)
-        })  
+        })
+
+        app.delete("/delete/:id", async (req, res) => {
+            const id = req.params.id;
+            await CartCollection.deleteOne({_id: new mongodb.ObjectId(id)});
+            res.send("deleted");
+        })
+        
     } catch (error) {
         console.log(error);
     } finally {
