@@ -7,6 +7,7 @@ import styled from "styled-components";
 import React, { useState, useEffect } from "react"; 
 import Axios from 'axios';
 
+
 const Info = styled.div`
   opacity: 0;
   width: 100%;
@@ -67,7 +68,39 @@ const Icon = styled.div`
   }
 `;
 
+
+
+
+
+
 const Product = ({ item }) => {
+
+  const [title, setFoodname] = useState('')
+  const [type, setTypename] = useState('')
+  const [description, setDesc] = useState('')
+  const [price, setPrice] = useState(0)
+  const [img, setimg] = useState('');
+  const [_id, setid] = useState('');
+
+ 
+
+  const [foodlist, setfoodlist] = useState([]);
+
+
+  const insertData=async ()=>{ 
+
+    Axios.post('http://localhost:3001/cart', {
+      title: title,
+      type: type,
+      description: description,
+      price: price,
+      img: img,
+      _id: _id
+    });
+  }
+  
+    
+
 
   return (
     <Container>
@@ -75,7 +108,7 @@ const Product = ({ item }) => {
       <Image src={item.img} />
       <Info>
         <Icon>
-          <ShoppingCartOutlined></ShoppingCartOutlined>
+          <button onClick={() => insertData()}></button>
         </Icon>
         <Icon>
           <SearchOutlined />
