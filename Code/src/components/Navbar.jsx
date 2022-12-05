@@ -78,7 +78,7 @@ const Navbar = () => {
         <Right>  
                 <MenuItem> <a style={{textDecoration: 'none'}} href = "./Products">PRODUCTS</a></MenuItem>
                 <MenuItem> <a style={{textDecoration: 'none'}} href = "./coming_soon">DEALS</a></MenuItem>
-                <MenuItem><a style={{textDecoration: 'none'}} href = "./coming_soon">SIGN IN</a></MenuItem>
+                <MenuItem><a style={{textDecoration: 'none'}} href = "./signin">SIGN IN</a></MenuItem>
                 <MenuItem> 
                 <Badge badgeContent={0} color="primary">
                     <a style={{textDecoration: 'none'}} href='./Cart'><ShoppingCartOutlined/></a>
