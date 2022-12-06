@@ -21,13 +21,13 @@ const Wrapper = styled.div`
   padding: 20px;
   background-color: white;
  `
-const Title = styled.div`
+const Title = styled.h1`
   font-size: 24px;
   font-weight: 300;`
-const Form = styled.div`
+const Form = styled.form`
   display: flex;
   flex-direction: column;`
-const Input = styled.div`
+const Input = styled.input`
   flex: 1;
   min-width: 40%;
   margin: 10px 0;
@@ -54,10 +54,10 @@ const signIn = () => {
         <Wrapper>
         <Title>SIGN IN</Title>
         <Form>
-          <input placeholder='username'></input>
-          <input placeholder='password'></input>
+          <Input placeholder='username'></Input>
+          <Input placeholder='password'></Input>
           <Button>LOGIN</Button>
-          <Link>DO NOT YOU REMEMBER THE PASSWORD?</Link>
+          <Link>FOTGOT PASSWORD?</Link>
           <Link><a href='./register'>CREATE A NEW ACCOUNT</a></Link>
         </Form>
       </Wrapper>

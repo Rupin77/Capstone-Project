@@ -1,5 +1,5 @@
 const express = require("express");
-const mongoose = require('mongoose');
+
 const cors = require('cors');
 const app = express();
 const { MongoClient } = require('mongodb');
@@ -11,15 +11,6 @@ app.use(express.json());
 
 
 const main = async () => {
-
-    mongoose.connect("mongodb+srv://burr:rupin123@clickdb.ojxlzbo.mongodb.net/?retryWrites=true&w=majority", 
-    { 
-        useNewUrlParser: true,
-    }
-    );
-
-    const CartModel = require('./CartSchema.js');
-   
 
     const uri = "mongodb+srv://burr:rupin123@clickdb.ojxlzbo.mongodb.net/?retryWrites=true&w=majority";
     const client = new MongoClient(uri);
@@ -39,21 +30,10 @@ const main = async () => {
             res.send(food)
         })
 
-        app.post("/cart", async (req, res) => { 
-            const title = req.body.title;
-            const type = req.body.type;
-            const description = req.body.description;
-            const price = req.body.price;
-            const img = req.body.img;
-
-            const cart = new CartModel({title: title, type: type, description: description, price: price, img: img});
-
-            try {
-                await cart.save();
-                res.send("success");
-            } catch (err) {
-                console.log(err);
-            }
+        app.post("/cart/:id", async (req, res) => { 
+            const food = req.body;
+            const result = await CartCollection.insertOne(food);
+            res.send(result);   
         });
 
 
