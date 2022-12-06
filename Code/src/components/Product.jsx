@@ -87,19 +87,14 @@ const Product = ({ item }) => {
   const [foodlist, setfoodlist] = useState([]);
 
 
-  const insertData=async ()=>{ 
+  useEffect(()=> { 
+    fetch(`http://localhost:3001/food/${_id}`)
 
-    Axios.post('http://localhost:3001/cart', {
-      title: title,
-      type: type,
-      description: description,
-      price: price,
-      img: img,
-      _id: _id
-    });
+  })
+  const insertData= (title)=>{ 
+
+    Axios.post(`http://localhost:3001/cart/${title}`);
   }
-  
-    
 
 
   return (
@@ -108,7 +103,7 @@ const Product = ({ item }) => {
       <Image src={item.img} />
       <Info>
         <Icon>
-          <button onClick={() => insertData()}></button>
+          <button onClick={() => insertData(item.foodlist)}></button>
         </Icon>
         <Icon>
           <SearchOutlined />
