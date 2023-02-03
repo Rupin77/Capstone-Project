@@ -7,12 +7,16 @@ import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import {
   decrementQuantity,
+  emptyCart,
   incrementQuantity,
   removeItem,
 } from "../store/cart";
 import { useNavigate } from "react-router-dom";
 import { Grid, IconButton, Box } from "@material-ui/core";
 import { DeleteOutline } from "@material-ui/icons";
+import { useAddToCartMutation } from "../api/addToCart";
+
+import swal from "sweetalert";
 const Container = styled.div``;
 const Wrapper = styled.div`
   padding: 20px;
@@ -156,7 +160,7 @@ const Cart = () => {
   const [_id, setid] = useState("");
   const products = useSelector((state) => state.cart.cart);
   const [foodlistData, setfoodlist] = useState([]);
-
+  const [addCart, { isLoading }] = useAddToCartMutation();
   useEffect(() => {
     const price = products.reduce((accumulator, curValue) => {
       return Number(accumulator) + Number(curValue.price * curValue.quantity);
@@ -171,7 +175,18 @@ const Cart = () => {
 
   const handleCheckout = () => {
     const token = localStorage.getItem("token");
-    if (token === "" || token === null) navigate("/signin");
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (token === "" || token === null || user === null || user === "")
+      swal("Failed!", "You need to login firsst", "warning").then(() => {
+        navigate("/signin");
+      });
+    else addCart({ userId: user._id, products: foodlistData }).then((res)=>{
+      if(res.data) swal("Success", "Checkedout successfully", "success").then(() => {
+        dispatch(emptyCart())
+        navigate("/Products");
+      })
+    });
   };
 
   return (
@@ -193,12 +208,7 @@ const Cart = () => {
             <Grid item xs={12} sm={12} md={8}>
               {foodlistData &&
                 foodlistData?.map((foodlist) => (
-                  <Grid
-                    item
-                    xs={12}
-                    sm={12}
-                    md={12}
-                  >
+                  <Grid item xs={12} sm={12} md={12}>
                     <Info>
                       <Product>
                         <ProductDetail>
@@ -255,7 +265,7 @@ const Cart = () => {
                 <SummaryTitle>Order Summary</SummaryTitle>
                 <SummaryItem>
                   <SummaryItemText>Subtotal</SummaryItemText>
-                  <SummaryItemPrice>{price}</SummaryItemPrice>
+                  <SummaryItemPrice>{price.toFixed(2)}</SummaryItemPrice>
                 </SummaryItem>
                 <SummaryItem>
                   <SummaryItemText>Tax (GST)</SummaryItemText>
@@ -263,7 +273,9 @@ const Cart = () => {
                 </SummaryItem>
                 <SummaryItem>
                   <SummaryItemText type="total">Total</SummaryItemText>
-                  <SummaryItemPrice>{price + price * 0.13}</SummaryItemPrice>
+                  <SummaryItemPrice>
+                    {(price + price * 0.13).toFixed(2)}
+                  </SummaryItemPrice>
                 </SummaryItem>
                 <Button onClick={handleCheckout}>Checkout Now</Button>
               </Summary>

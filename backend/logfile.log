@@ -1,7 +1,10 @@
-{"level":"info","message":"major Error: Error: queryTxt ETIMEOUT clickdb.ojxlzbo.mongodb.net","timestamp":"2022-12-07T11:42:55.956Z"}
-{"level":"info","message":"Listening on port 3000...","timestamp":"2022-12-07T11:45:31.977Z"}
-{"level":"info","message":"major Error: Error: queryTxt ETIMEOUT clickdb.ojxlzbo.mongodb.net","timestamp":"2022-12-07T11:52:52.360Z"}
-{"level":"info","message":"Listening on port 3000...","timestamp":"2022-12-07T11:52:57.909Z"}
-{"level":"info","message":"major Error: Error: queryTxt ETIMEOUT clickdb.ojxlzbo.mongodb.net","timestamp":"2022-12-07T11:54:16.593Z"}
-{"level":"info","message":"Listening on port 3000...","timestamp":"2022-12-09T03:50:43.778Z"}
-{"level":"info","message":"Connected to mongodb://burr:rupin123@ac-rgi7a2r-shard-00-00.ojxlzbo.mongodb.net:27017,ac-rgi7a2r-shard-00-01.ojxlzbo.mongodb.net:27017,ac-rgi7a2r-shard-00-02.ojxlzbo.mongodb.net:27017/?ssl=true&replicaSet=atlas-xi1eyd-shard-0&authSource=admin&retryWrites=true&w=majority...","timestamp":"2022-12-09T03:50:44.313Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-12-14T11:24:30.310Z"}
+{"level":"info","message":"Connected to mongodb://burr:rupin123@ac-rgi7a2r-shard-00-00.ojxlzbo.mongodb.net:27017,ac-rgi7a2r-shard-00-01.ojxlzbo.mongodb.net:27017,ac-rgi7a2r-shard-00-02.ojxlzbo.mongodb.net:27017/?ssl=true&replicaSet=atlas-xi1eyd-shard-0&authSource=admin&retryWrites=true&w=majority...","timestamp":"2022-12-14T11:24:33.502Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-12-15T02:24:46.858Z"}
+{"level":"info","message":"major Error: MongoError: bad auth : Authentication failed.","timestamp":"2022-12-15T02:24:47.335Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2022-12-15T02:25:01.083Z"}
+{"level":"info","message":"major Error: MongoError: bad auth : Authentication failed.","timestamp":"2022-12-15T02:25:01.538Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2023-01-26T02:00:30.520Z"}
+{"level":"info","message":"Connected to mongodb://burr:zain123@ac-rgi7a2r-shard-00-00.ojxlzbo.mongodb.net:27017,ac-rgi7a2r-shard-00-01.ojxlzbo.mongodb.net:27017,ac-rgi7a2r-shard-00-02.ojxlzbo.mongodb.net:27017/?ssl=true&replicaSet=atlas-xi1eyd-shard-0&authSource=admin&retryWrites=true&w=majority...","timestamp":"2023-01-26T02:00:30.888Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2023-01-26T02:20:11.437Z"}
+{"level":"info","message":"Connected to mongodb://burr:zain123@ac-rgi7a2r-shard-00-00.ojxlzbo.mongodb.net:27017,ac-rgi7a2r-shard-00-01.ojxlzbo.mongodb.net:27017,ac-rgi7a2r-shard-00-02.ojxlzbo.mongodb.net:27017/?ssl=true&replicaSet=atlas-xi1eyd-shard-0&authSource=admin&retryWrites=true&w=majority...","timestamp":"2023-01-26T02:20:11.820Z"}

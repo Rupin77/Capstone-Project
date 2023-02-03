@@ -10,6 +10,7 @@ import { IconButton, Typography, Box } from "@material-ui/core";
 import { addToCart } from "../store/cart";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useAddToCartMutation } from "../api/addToCart";
 const Info = styled.div`
   opacity: 0;
   width: 100%;
@@ -81,16 +82,20 @@ const Product = ({ item, hasDiscount }) => {
   const [_id, setid] = useState("");
 
   const [foodlist, setfoodlist] = useState([]);
-
+  const [addtoCart, { isLoading }] = useAddToCartMutation();
   // const insertData= (title)=>{
   //   Axios.post(`http://localhost:3001/cart/${title}`);
   // }
 
   const handleAddToCart = (item) => {
-    dispatch(addToCart(item));
+    console.log("okay i am clicked")
+    addtoCart({ productId: item });
+    //dispatch(addToCart(item));
   };
 
-  return (
+  return isLoading ? (
+    <p>Loading...</p>
+  ) : (
     <Container>
       <Circle />
 

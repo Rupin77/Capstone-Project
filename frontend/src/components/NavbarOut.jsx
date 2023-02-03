@@ -81,19 +81,12 @@ const Navbar = () => {
           <Logo>
           {" "}
           </Logo>{" "}
-          <MenuItem onClick={() => navigate("/")} tyle={{ textDecoration: "none " }}> CLICK</MenuItem>
+          <MenuItem onClick={() => navigate("/Home")} style={{ textDecoration: "none " }}> CLICK</MenuItem>
         </Center>
         <Right>
           <MenuItem onClick={() => navigate("/Products")}> PRODUCTS</MenuItem>
           <MenuItem onClick={() => navigate("/Deals")}> DEALS</MenuItem>
-          <MenuItem onClick={() => navigate("/")}>{userName || "SIGN IN"}</MenuItem>
-          {/*If username is logged in, add signout button */
-          userName && (
-            <MenuItem onClick={() => navigate("/Home")}>SIGN OUT</MenuItem>
-          )
-               
-          
-          }
+          <MenuItem onClick={() => navigate("/signin")}>{"SIGN IN"}</MenuItem>
           <MenuItem onClick={() => navigate("/Cart")}>
             <Badge badgeContent={count.length} color="primary">
               <ShoppingCartOutlined />

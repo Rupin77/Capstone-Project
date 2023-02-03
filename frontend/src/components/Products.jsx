@@ -52,7 +52,7 @@ const Products = ({ hasDiscount }) => {
         <Filter>
           <FilterText>Filter Products:</FilterText>
           <Select onChange={(e) => setQueryCategory(e.target.value)}>
-            <Option disabled selected value="all">
+            <Option selected value="all">
               Categories
             </Option>
             <Option value="drink">Drink</Option>
